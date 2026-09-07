@@ -1,0 +1,43 @@
+
+[tool.ruff]
+# Black-compatible line length. `ruff format` owns line length, so E501 is off below.
+line-length = 88
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "F",    # pyflakes: unused names, undefined names
+    "I",    # isort: import order
+    "B",    # flake8-bugbear: common bug risks
+    "ARG",  # flake8-unused-arguments
+    "N",    # pep8-naming
+    "S",    # flake8-bandit: security patterns
+    "SIM",  # flake8-simplify
+    "C4",   # flake8-comprehensions
+    "C90",  # mccabe: cyclomatic complexity, threshold below
+    "UP",   # pyupgrade: modern syntax
+    "RUF",  # ruff-specific rules
+]
+ignore = [
+    "E501",  # line length is `ruff format`'s job
+]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = [
+    "S101",    # assert is how tests assert
+    "SIM117",  # nested `with` reads better in test setup
+    "S108",    # temporary paths are fine in tests
+]
+
+[tool.complexipy]
+# Cognitive complexity, which mccabe's cyclomatic count misses.
+paths = ["src", "tests"]
+max-complexity-allowed = 15
+failed = true
+
+[tool.uv]
+# The dependency cooldown, for machines without the user-level uv setting.
+exclude-newer = "14 days"

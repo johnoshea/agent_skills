@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Checks every skill under skills/ for both hosts: the frontmatter name matches
+# the directory, a description is present, SKILL.md stays under 60 lines, and
+# a skill that Claude Code may not invoke on its own carries the same rule for
+# Codex in agents/openai.yaml.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+status=0
+fail() { echo "$1" >&2; status=1; }
+
+for dir in skills/*/; do
+    name=$(basename "$dir")
+    skill="$dir/SKILL.md"
+    [ -f "$skill" ] || { fail "$dir has no SKILL.md"; continue; }
+
+    frontmatter=$(sed -n '2,/^---$/p' "$skill")
+    declared=$(printf '%s\n' "$frontmatter" | sed -n 's/^name: *//p')
+    [ "$declared" = "$name" ] || fail "$skill: name is '$declared', directory is '$name'"
+    printf '%s\n' "$frontmatter" | grep -q '^description: .' || fail "$skill: no description"
+
+    lines=$(wc -l < "$skill")
+    [ "$lines" -lt 60 ] || fail "$skill: $lines lines, limit 60"
+
+    if printf '%s\n' "$frontmatter" | grep -q '^disable-model-invocation: true'; then
+        grep -qs 'allow_implicit_invocation: false' "$dir/agents/openai.yaml" \
+            || fail "$skill is explicit-only for Claude Code but $dir/agents/openai.yaml lacks allow_implicit_invocation: false"
+    fi
+done
+
+[ "$status" -eq 0 ] && echo "skills ok"
+exit "$status"

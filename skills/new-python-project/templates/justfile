@@ -1,0 +1,7 @@
+# The check every commit must pass. The prek hook runs the first three on
+# commit; the johns-way commit check runs the whole recipe.
+check:
+    uv run ruff check .
+    uv run ruff format --check .
+    uv run complexipy
+    uv run pytest -q

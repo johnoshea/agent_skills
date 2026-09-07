@@ -1,0 +1,21 @@
+# Run by prek on every commit. Local hooks through `uv run`, so the hook uses
+# the ruff and complexipy versions in uv.lock. Keep in step with the justfile.
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: ruff check
+        language: system
+        entry: uv run ruff check
+        types_or: [python, pyi]
+      - id: ruff-format
+        name: ruff format --check
+        language: system
+        entry: uv run ruff format --check
+        types_or: [python, pyi]
+      - id: complexipy
+        name: complexipy
+        language: system
+        entry: uv run complexipy
+        types: [python]
+        pass_filenames: false

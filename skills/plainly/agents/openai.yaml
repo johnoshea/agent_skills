@@ -1,0 +1,5 @@
+interface:
+  display_name: Plainly
+  short_description: Rewrite a reply, comments, commit message, or document in plain language
+policy:
+  allow_implicit_invocation: false
