@@ -7,7 +7,7 @@ argument-hint: "blank for my last reply, or a file path, or 'commit' / 'issue'"
 
 # plainly
 
-Rewrite the target using plain language, ISO 24495-1:2023. Rewrite only — don't fix the underlying work, add content, or widen scope.
+Rewrite the target in plain language, ISO 24495-1:2023. Change only the wording. The meaning, the scope, and the underlying work stay as they are.
 
 | Argument | Target | Also |
 |---|---|---|
