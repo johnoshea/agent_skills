@@ -42,7 +42,7 @@ max-complexity = 10
     "D103",  # the stub function uv init writes. Remove once real code lives here.
 ]
 "tests/test_MODULE.py" = [
-    "D103",  # the smoke test
+    "D103",  # the smoke test. Remove with it.
 ]
 
 [tool.complexipy]

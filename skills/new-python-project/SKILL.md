@@ -15,7 +15,7 @@ Creates `<project-name>` under the current directory and leaves it with a first 
 2. In the new directory, append `templates/pyproject-tools.toml` to `pyproject.toml`, replacing `MODULE` with the directory name uv created under `src/`.
 3. `uv add --dev ruff complexipy pytest`. The `exclude-newer` appended in step 2 makes uv choose the newest versions that clear the 14-day cooldown.
 4. Copy `templates/justfile` to `justfile` and `templates/pre-commit-config.yaml` to `.pre-commit-config.yaml`. Append `templates/gitignore-tools` to `.gitignore`: the tool caches uv leaves out.
-5. Write `tests/test_<module>.py` from `templates/test_smoke.py`, with the same `MODULE` replacement as step 2. pytest fails with no tests, so this test is what lets the first commit pass.
+5. Write `tests/test_<module>.py` from `templates/test_smoke.py`, with the same `MODULE` replacement as step 2. pytest fails with no tests, so this test is what lets the first commit pass. Delete it, and its `D103` ignore in `pyproject.toml`, in the commit that adds the first real test: any test that imports the module then catches what it caught.
 6. `prek install`.
 7. `just check`. It passes on a fresh scaffold. If it fails, stop and report.
 8. `git add` the files by name: `pyproject.toml uv.lock justfile .pre-commit-config.yaml .gitignore .python-version README.md src tests`. Commit as "Scaffold <name>".
