@@ -34,6 +34,12 @@ max-complexity = 10
     "SIM117",  # nested `with` reads better in test setup
     "S108",    # temporary paths are fine in tests
 ]
+"src/MODULE/__init__.py" = [
+    "D103",  # the stub function uv init writes. Remove once real code lives here.
+]
+"tests/test_MODULE.py" = [
+    "D103",  # the smoke test
+]
 
 [tool.complexipy]
 # Cognitive complexity, which mccabe's cyclomatic count misses.
