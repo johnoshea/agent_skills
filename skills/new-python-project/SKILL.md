@@ -11,7 +11,7 @@ Creates `<project-name>` under the current directory and leaves it with a first 
 
 `--lib` is a package other projects import. `--app` is a program with an entry point. If the argument names neither, ask which.
 
-1. `uv init --lib <name>` or `uv init --app <name>`. Both write the uv_build backend with the version pin the uv docs recommend. If `<name>/.git` is missing afterwards, the current directory is inside a repository. Stop and report.
+1. `uv init --lib --build-backend uv <name>` or `uv init --app --build-backend uv <name>`. The flag names the uv_build backend, and uv writes the version pin its docs recommend. If `<name>/.git` is missing afterwards, the current directory is inside a repository. Stop and report.
 2. In the new directory, append `templates/pyproject-tools.toml` to `pyproject.toml`.
 3. `uv add --dev ruff complexipy pytest`. The `exclude-newer` appended in step 2 makes uv choose the newest versions that clear the 14-day cooldown.
 4. Copy `templates/justfile` to `justfile` and `templates/pre-commit-config.yaml` to `.pre-commit-config.yaml`. Append `templates/gitignore-tools` to `.gitignore`: the tool caches uv leaves out.
