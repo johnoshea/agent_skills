@@ -17,6 +17,9 @@ select = [
     "C90",  # mccabe: cyclomatic complexity, threshold below
     "UP",   # pyupgrade: modern syntax
     "RUF",  # ruff-specific rules
+    "D101", # fails on a public class that has no docstring.
+    "D102", # fails on a public method that has no docstring.
+    "D103", # fails on a public function that has no docstring.
 ]
 ignore = [
     "E501",  # line length is `ruff format`'s job
