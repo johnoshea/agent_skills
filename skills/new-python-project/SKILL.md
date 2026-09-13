@@ -24,7 +24,7 @@ From here the project is ordinary johns-way work. The first feature is sized by 
 
 ## What the defaults do
 
-- **ruff.** Line length 88, `E501` off because `ruff format` owns line length, mccabe cyclomatic complexity capped at 10 through `C90`. Public classes, methods, and functions need docstrings, except the stub uv writes and the smoke test. Tests may use `assert`, nested `with`, and temporary paths.
+- **ruff.** Line length 88, `E501` off because `ruff format` owns line length, mccabe cyclomatic complexity capped at 10 through `C90`. Public classes, methods, and functions need docstrings, except the stub uv writes and the smoke test. Tests may use `assert`, nested `with`, and temporary paths. Four extra rules flag tests that always pass: a broad `raises` without a match, a duplicated parametrize row, an assert on a string literal, and a value compared with itself.
 - **complexipy.** Cognitive complexity capped at 15 over `src` and `tests`, failing the check when exceeded. It catches long flat functions that mccabe scores low.
 - **`[tool.uv] exclude-newer`.** The cooldown for machines without the user-level uv setting, such as CI.
 - **prek.** Local hooks through `uv run`, so the hook runs the ruff and complexipy versions in `uv.lock`. The lint commands appear in both the justfile and the hook config. Change both together.

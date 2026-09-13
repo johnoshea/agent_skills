@@ -17,6 +17,10 @@ select = [
     "C90",  # mccabe: cyclomatic complexity, threshold below
     "UP",   # pyupgrade: modern syntax
     "RUF",  # ruff-specific rules
+    "PT011",   # pytest.raises on a broad exception needs a match
+    "PT014",   # a duplicated parametrize row tests nothing new
+    "PLW0129", # an assert on a string literal always passes
+    "PLR0124", # a value compared with itself always passes
     "D101", # fails on a public class that has no docstring.
     "D102", # fails on a public method that has no docstring.
     "D103", # fails on a public function that has no docstring.
