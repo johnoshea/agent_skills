@@ -1,7 +1,6 @@
 ---
 name: plainly
-description: Use when John asks for something to be rewritten in plain language or to ISO 24495-1 — the last reply in chat, code comments in a file, a commit message or issue text, or a doc file in the repo.
-disable-model-invocation: true
+description: Rewrite text in plain language to ISO 24495-1, whether the last reply in chat, code comments in a file, a commit message or issue text, or a doc file in the repo. Run on every commit message before committing, and when John asks for a rewrite.
 argument-hint: "blank for my last reply, or a file path, or 'commit' / 'issue'"
 ---
 
