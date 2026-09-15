@@ -45,12 +45,6 @@ max-complexity = 10
     "D103",  # the smoke test. Remove with it.
 ]
 
-[tool.complexipy]
-# Cognitive complexity, which mccabe's cyclomatic count misses.
-paths = ["src", "tests"]
-max-complexity-allowed = 15
-failed = true
-
 [tool.uv]
 # The dependency cooldown, for machines without the user-level uv setting.
 exclude-newer = "14 days"

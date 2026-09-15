@@ -5,12 +5,12 @@ John's personal skills for Claude Code and Codex. Each directory under `skills/`
 | Skill | Does |
 |---|---|
 | `plainly` | Rewrites the last reply, a file's comments, a commit message, an issue, or a document in plain language, ISO 24495-1. A commit message goes first to a subagent with no session context. |
-| `new-python-project` | Scaffolds a Python project: uv with the uv_build backend, ruff and complexipy configured in `pyproject.toml`, a justfile `check` recipe, and prek hooks that lint on every commit. |
+| `new-python-project` | Scaffolds a Python project: uv with the uv_build backend, ruff configured in `pyproject.toml`, bca thresholds in `bca.toml`, a justfile `check` recipe, and prek hooks that lint on every commit. |
 
 ## Prerequisites
 
 - `just` and `shellcheck`, for the check.
-- For `new-python-project`: `uv` and `prek`. The finished scaffold is ordinary [johns-way](https://github.com/johnoshea/johns-way) work, so that plugin is expected too.
+- For `new-python-project`: `uv`, `prek`, and `bca`, installed with `cargo install big-code-analysis-cli`. The finished scaffold is ordinary [johns-way](https://github.com/johnoshea/johns-way) work, so that plugin is expected too.
 
 ## Install
 

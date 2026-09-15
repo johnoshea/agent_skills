@@ -3,5 +3,5 @@
 check:
     uv run ruff check .
     uv run ruff format --check .
-    uv run complexipy
+    bca check
     uv run pytest -q

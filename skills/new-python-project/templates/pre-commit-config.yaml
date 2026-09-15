@@ -1,5 +1,6 @@
-# Run by prek on every commit. Local hooks through `uv run`, so the hook uses
-# the ruff and complexipy versions in uv.lock. Keep in step with the justfile.
+# Run by prek on every commit. ruff runs through `uv run`, so the hook uses
+# the version in uv.lock. bca is the binary on PATH. Keep in step with the
+# justfile.
 repos:
   - repo: local
     hooks:
@@ -13,9 +14,8 @@ repos:
         language: system
         entry: uv run ruff format --check
         types_or: [python, pyi]
-      - id: complexipy
-        name: complexipy
+      - id: bca-check
+        name: bca check
         language: system
-        entry: uv run complexipy
-        types: [python]
+        entry: bca check
         pass_filenames: false

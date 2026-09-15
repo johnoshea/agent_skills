@@ -1,0 +1,17 @@
+# Thresholds for `bca check`, which runs over the whole project in
+# `just check` and in the prek hook. bca finds this file by climbing from
+# the working directory. The values are the defaults `bca init` writes.
+# Per-language overrides: https://dekobon.github.io/big-code-analysis/
+paths = ["."]
+
+[thresholds]
+cognitive = 15
+cyclomatic = 15
+abc = 40
+nargs = 5
+nexits = 5
+"halstead.effort" = 50000
+"loc.ploc" = 600
+"loc.sloc" = 1200
+nom = 30
+wmc = 60

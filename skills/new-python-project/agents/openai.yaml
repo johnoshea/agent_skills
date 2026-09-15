@@ -1,5 +1,5 @@
 interface:
   display_name: New Python project
-  short_description: Scaffold a Python project with uv, ruff, complexipy, just, and prek
+  short_description: Scaffold a Python project with uv, ruff, bca, just, and prek
 policy:
   allow_implicit_invocation: false
