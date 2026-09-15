@@ -1,6 +1,6 @@
 ---
 name: plainly
-description: Rewrite text in plain language to ISO 24495-1, whether the last reply in chat, code comments in a file, a commit message or issue text, or a doc file in the repo. Run on every commit message before committing, and when John asks for a rewrite.
+description: Rewrite text in plain language to ISO 24495-1, whether the last reply in chat, code comments in a file, a commit message or issue text, or a doc file in the repo. Run on every commit message before committing, on every explanation before sending it, and when John asks for a rewrite.
 argument-hint: "blank for my last reply, or a file path, or 'commit' / 'issue'"
 ---
 
@@ -29,3 +29,15 @@ The reader of a commit message has the diff and nothing else. Having been in the
 4. Commit.
 
 Without subagents, do step 2 alone: one sentence at a time, asking whether every noun would be clear to someone who has never seen this repository or this conversation.
+
+## Explanations
+
+An explanation is a reply of more than three sentences that says how something works or what a change would do. Before sending one:
+
+1. Draft the reply.
+2. Dispatch one subagent in the foreground with fresh context, as for a commit message. Give it the draft and nothing else. Ask it for three lists:
+   - words or phrases the draft does not define and ordinary English does not cover
+   - sentences in which no one is named as doing the action
+   - sentences it had to read twice
+3. Rewrite from its answer. One round.
+4. Send.
