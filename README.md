@@ -9,7 +9,8 @@ John's personal skills for Claude Code and Codex. Each directory under `skills/`
 
 ## Prerequisites
 
-- `just` and `shellcheck`, for the check.
+- `just` 1.56 or later. The justfile sets the Windows shell with an attribute that older versions reject.
+- `shellcheck`, for the check.
 - For `new-python-project`: `uv`, `prek`, and `bca`, installed with `cargo install big-code-analysis-cli`. The finished scaffold is ordinary [johns-way](https://github.com/johnoshea/johns-way) work, so that plugin is expected too.
 
 ## Install
@@ -17,6 +18,8 @@ John's personal skills for Claude Code and Codex. Each directory under `skills/`
     just install
 
 This links each skill into `~/.claude/skills/<name>` for Claude Code and `~/.agents/skills/<name>` for Codex. Both hosts follow the links, so an edit here applies at once. Claude Code invokes a skill as `/<name>` and Codex as `$<name>`. Run `just install` again after adding a skill.
+
+On Windows, `just install` runs in PowerShell and makes each link a junction under `%USERPROFILE%`. A normal terminal can create a junction, without Developer Mode or administrator rights. `just check` needs `sh`, so run it on macOS or Linux.
 
 ## Adding a skill
 
