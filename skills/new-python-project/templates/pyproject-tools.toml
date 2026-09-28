@@ -48,3 +48,8 @@ max-complexity = 10
 [tool.uv]
 # The dependency cooldown, for machines without the user-level uv setting.
 exclude-newer = "14 days"
+
+# Allow Claude Code-hosted Pyright plugin to find local .venv for checking
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
