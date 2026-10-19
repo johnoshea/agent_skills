@@ -1,6 +1,6 @@
 ---
 name: plainly
-description: Rewrite text in plain language to ISO 24495-1, whether the last reply in chat, code comments in a file, a commit message or issue text, or a doc file in the repo. Run on every commit message before committing, and when John asks for a rewrite.
+description: Rewrite text in plain language to ISO 24495-1, whether the last reply in chat, code comments in a file, a commit message, issue text, a pull request description, or a doc file in the repo. Run on every commit message before committing, on every issue title, body, and comment before posting, on every pull request description before opening it, and when John asks for a rewrite.
 argument-hint: "blank for my last reply, or a file path, or 'commit' / 'issue'"
 ---
 
