@@ -4,7 +4,7 @@ John's personal skills for Claude Code and Codex. Each directory under `skills/`
 
 | Skill | Does |
 |---|---|
-| `plainly` | Rewrites the last reply, a file's comments, a commit message, an issue, or a document in plain language, ISO 24495-1. Its cold read of commit messages and explanations is off. `skills/plainly/references/cold-read.md` keeps the procedure. |
+| `plainly` | Rewrites the last reply, a file's comments, a commit message, an issue, or a document in plain language, ISO 24495-1. Its cold read of commit messages and explanations is off. The procedure is in `skills/plainly/references/cold-read.md`. |
 | `new-python-project` | Scaffolds a Python project: uv with the uv_build backend, ruff configured in `pyproject.toml`, bca thresholds in `bca.toml`, a justfile `check` recipe, and prek hooks that lint on every commit. |
 
 ## Prerequisites
@@ -31,4 +31,4 @@ On Windows, `just install` runs in PowerShell and makes each link a junction und
 
     just check
 
-Runs shellcheck over `bin/` and `bin/check-skills`, which checks each skill's frontmatter, its line count, and that an explicit-only skill carries the rule for both hosts.
+Runs shellcheck over `bin/` and `bin/check-skills`, which checks each skill's frontmatter, its line count, and that an explicit-only skill has the setting for both hosts.
